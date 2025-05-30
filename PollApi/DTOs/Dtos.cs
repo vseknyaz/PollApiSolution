@@ -47,5 +47,15 @@ namespace PollApi.DTOs
         public QuestionResultDto(Question q)
             : this(q.Id, q.Text, q.Choices.Select(c => new ChoiceResultDto(c))) { }
     }
+    public record UserDto(
+        string Id,
+        string UserName,
+        string Email
+    );
 
+    public record CreateUserDto(
+        string Id,
+        string UserName,
+        string Email
+    );
 }

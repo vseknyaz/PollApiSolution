@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab3: Polls Manager</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Polls Manager</h1>
+
+    <section id="createPollSection">
+        <h2>Створити нове опитування</h2>
+        <form onsubmit="addPoll(); return false;">
+            <input type="text" id="poll-title" placeholder="Title" required />
+            <input type="text" id="poll-desc" placeholder="Description" />
+            <input type="text" id="poll-user" placeholder="CreatedById" required />
+            <button type="submit">Create</button>
+        </form>
+    </section>
+
+    <section id="editPollSection" style="display:none;">
+        <h2>Редагувати опитування</h2>
+        <form onsubmit="updatePoll(); return false;">
+            <input type="hidden" id="edit-id" />
+            <input type="text" id="edit-title" placeholder="Title" required />
+            <input type="text" id="edit-desc" placeholder="Description" />
+            <button type="submit">Save</button>
+            <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Список опитувань</h2>
+        <table border="1">
+            <thead>
+                <tr><th>ID</th><th>Title</th><th>Description</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="polls-body"></tbody>
+        </table>
+    </section>
+
+    <script src="js/polls.js"></script>
+    <script>getPolls();</script>
+</body>
+</html>

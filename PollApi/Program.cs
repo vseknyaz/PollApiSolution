@@ -30,6 +30,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.UseStaticFiles();      // Дозволяє подавати wwwroot
+
 app.UseHttpsRedirection();
 
 app.UseRouting();
@@ -41,5 +44,5 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.MapControllers();
-
+app.MapFallbackToFile("index.html");
 app.Run();
