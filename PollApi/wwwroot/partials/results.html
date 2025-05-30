@@ -1,17 +1,13 @@
-﻿<!-- Results Viewer -->
-<h1>Poll Results</h1>
+﻿<h1 class="mb-4">📊 Poll Results</h1>
 
 <section class="mb-4 row g-2 align-items-end">
     <div class="col-md-3">
         <label for="res-pollId" class="form-label">Poll ID</label>
-        <input type="number" id="res-pollId" class="form-control" value="1" onchange="results.load();">
+        <input type="number" id="res-pollId" class="form-control" value="1">
     </div>
     <div class="col-md-2">
-        <button class="btn btn-primary w-100" onclick="results.load()">Show</button>
+        <button id="showResultsBtn" class="btn btn-primary w-100">Show</button>
     </div>
 </section>
 
-<section id="results-container"></section>
-
-<script src="js/results.js"></script>
-<script>results.init();</script>
+<section id="results-container" class="mt-4"></section>

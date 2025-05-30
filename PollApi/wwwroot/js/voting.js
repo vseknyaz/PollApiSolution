@@ -108,10 +108,10 @@ async function submitVotes() {
                 return;
             }
             const choiceId = selected.value;
-            const res = await fetch(`/api/choices/${choiceId}/votes`, {
+            const res = await fetch(`/api/polls/${pollId}/votes`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId })
+                body: JSON.stringify({ userId, choiceId: Number(choiceId) })
             });
             if (!res.ok) {
                 if (res.status === 400 || res.status === 409) {

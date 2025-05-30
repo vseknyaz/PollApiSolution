@@ -1,35 +1,40 @@
-﻿// wwwroot/js/app.js
+﻿// app.js
+import { init as initPolls } from './polls.js';
+import { init as initParticipants } from './participants.js';
+import { init as initQuestions } from './questions.js';
+import { init as initChoices } from './choices.js';
+import { init as initResults } from './results.js';
+import { init as initUsers } from './users.js';
+import { init as initVoting } from './voting.js';
+
 const pageConfig = {
-    polls: { partial: 'polls.html', module: 'polls.js', init: 'init' },
-    participants: { partial: 'participants.html', module: 'participants.js', init: 'init' },
-    questions: { partial: 'questions.html', module: 'questions.js', init: 'init' },
-    results: { partial: 'results.html', module: 'results.js', init: 'init' },
-    users: { partial: 'users.html', module: 'users.js', init: 'getUsers' },
-    voting: { partial: 'voting.html', module: 'voting.js', init: 'init' },
-    choices: { partial: 'choices.html', module: 'choices.js', init: 'init' },
+    polls: { partial: 'polls.html', init: initPolls },
+    participants: { partial: 'participants.html', init: initParticipants },
+    questions: { partial: 'questions.html', init: initQuestions },
+    choices: { partial: 'choices.html', init: initChoices },
+    results: { partial: 'results.html', init: initResults },
+    users: { partial: 'users.html', init: initUsers },
+    voting: { partial: 'voting.html', init: initVoting }
 };
 
 async function loadPage(name) {
     const cfg = pageConfig[name];
-    if (!cfg) return console.warn(`Unknown page: ${name}`);
+    if (!cfg) return console.error(`Unknown page: ${name}`);
 
-    // 1) Завантажити HTML-фрагмент
-    const html = await fetch(`/partials/${cfg.partial}`).then(r => r.ok ? r.text() : Promise.reject(r.status));
+    // 1) завантажити HTML
+    const html = await fetch(`/partials/${cfg.partial}`)
+        .then(r => r.ok ? r.text() : Promise.reject(r.status));
     document.getElementById('content-area').innerHTML = html;
 
-    // 2) Переключити активну вкладку
-    document.querySelectorAll('.nav-link').forEach(a => {
-        a.classList.toggle('active', a.dataset.page === name);
-    });
+    // 2) переключити активну вкладку
+    document.querySelectorAll('.nav-link').forEach(a =>
+        a.classList.toggle('active', a.dataset.page === name)
+    );
 
-    // 3) Динамічно підключити модуль і викликати іниц-метод
-    const mod = await import(`./${cfg.module}`);
-    if (typeof mod[cfg.init] === 'function') {
-        mod[cfg.init]();
-    }
+    // 3) ініціалізувати модуль
+    cfg.init();
 }
 
-// ініціалізація навігації
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-page]').forEach(link => {
         link.addEventListener('click', e => {
@@ -37,5 +42,5 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPage(link.dataset.page);
         });
     });
-    loadPage('polls'); // стартова сторінка
+    loadPage('polls');
 });
