@@ -1,0 +1,33 @@
+﻿<h1 class="mb-4">👤 Users Manager</h1>
+
+<div class="card mb-4">
+    <div class="card-header">Створити користувача</div>
+    <div class="card-body">
+        <form id="create-user-form">
+            <div class="mb-3">
+                <label for="create-id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="create-id" required>
+            </div>
+            <div class="mb-3">
+                <label for="create-username" class="form-label">Ім'я користувача</label>
+                <input type="text" class="form-control" id="create-username" required>
+            </div>
+            <div class="mb-3">
+                <label for="create-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="create-email" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" id="create-user-btn">Створити</button>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Отримати користувача</div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="retrieve-id" placeholder="Введіть ID користувача">
+            <button class="btn btn-outline-secondary" type="button" id="retrieve-user-btn">Отримати</button>
+        </div>
+        <div id="user-details"></div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿<h1 class="mb-4">❓ Questions Manager</h1>
+
+<section class="mb-4 row g-2 align-items-end">
+    <div class="col-md-2">
+        <label for="ques-pollId" class="form-label">Poll ID</label>
+        <input type="number" id="ques-pollId" class="form-control" value="1">
+    </div>
+    <div class="col-md-8">
+        <label for="ques-text" class="form-label">Question Text</label>
+        <input type="text" id="ques-text" class="form-control" placeholder="Enter question" required>
+    </div>
+    <div class="col-md-2">
+        <button id="addQuestionBtn" class="btn btn-primary w-100">Add Question</button>
+    </div>
+</section>
+
+<section>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="questions-body"></tbody>
+    </table>
+</section>

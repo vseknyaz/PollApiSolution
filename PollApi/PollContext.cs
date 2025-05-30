@@ -12,8 +12,8 @@ namespace PollApi
 
         public DbSet<User> Users { get; set; }
         public DbSet<Poll> Polls { get; set; }
-        public DbSet<Question> Questions { get; set; }
         public DbSet<Choice> Choices { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<PollParticipant> PollParticipants { get; set; }
 

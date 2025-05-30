@@ -1,0 +1,33 @@
+﻿<h1 class="mb-4">👥 Participants Manager</h1>
+
+<section class="mb-3 row g-2 align-items-end">
+    <div class="col-md-2">
+        <label for="part-pollId" class="form-label">Poll ID</label>
+        <input type="number" id="part-pollId" class="form-control" value="1">
+    </div>
+    <div class="col-md-3">
+        <label for="part-user" class="form-label">UserId</label>
+        <input type="text" id="part-user" class="form-control" placeholder="userId">
+    </div>
+    <div class="col-md-3">
+        <label for="part-role" class="form-label">Role</label>
+        <input type="text" id="part-role" class="form-control" placeholder="Participant">
+    </div>
+    <div class="col-md-2">
+        <button id="invite-btn" class="btn btn-primary w-100">Invite</button>
+    </div>
+</section>
+
+<section>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>UserId</th>
+                <th>Role</th>
+                <th>InvitedAt</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="parts-body"></tbody>
+    </table>
+</section>

@@ -1,0 +1,28 @@
+﻿<h1 class="mb-4">📝 Choices Manager</h1>
+
+<section class="mb-3 row g-2 align-items-end">
+    <div class="col-md-2">
+        <label for="choice-questionId" class="form-label">Question ID</label>
+        <input type="number" id="choice-questionId" class="form-control" value="1">
+    </div>
+    <div class="col-md-8">
+        <label for="choice-text" class="form-label">Choice Text</label>
+        <input type="text" id="choice-text" class="form-control" placeholder="Enter choice" required>
+    </div>
+    <div class="col-md-2">
+        <button id="addChoiceBtn" class="btn btn-primary w-100">Add Choice</button>
+    </div>
+</section>
+
+<section>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Text</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="choices-body"></tbody>
+    </table>
+</section>

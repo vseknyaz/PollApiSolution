@@ -1,0 +1,50 @@
+﻿<h1 class="mb-4">📝 Polls Manager</h1>
+
+<section id="createPollSection" class="mb-4">
+    <form id="createPollForm" class="row g-2">
+        <div class="col-md-4">
+            <input type="text" id="poll-title" class="form-control" placeholder="Title" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="poll-desc" class="form-control" placeholder="Description">
+        </div>
+        <div class="col-md-2">
+            <input type="text" id="poll-user" class="form-control" placeholder="CreatedById" required>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100">Create</button>
+        </div>
+    </form>
+</section>
+
+<section id="editPollSection" class="mb-4" style="display: none;">
+    <form id="editPollForm" class="row g-2">
+        <input type="hidden" id="edit-id">
+        <div class="col-md-4">
+            <input type="text" id="edit-title" class="form-control" placeholder="Edit Title" required>
+        </div>
+        <div class="col-md-4">
+            <input type="text" id="edit-desc" class="form-control" placeholder="Edit Description">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success w-100">Save</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" id="cancelEditBtn" class="btn btn-secondary w-100">Cancel</button>
+        </div>
+    </form>
+</section>
+
+<section>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="polls-body"></tbody>
+    </table>
+</section>

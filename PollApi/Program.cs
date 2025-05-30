@@ -30,7 +30,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
+app.UseDefaultFiles();
 app.UseStaticFiles();      // Дозволяє подавати wwwroot
 
 app.UseHttpsRedirection();
